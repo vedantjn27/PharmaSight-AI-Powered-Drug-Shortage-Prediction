@@ -1,0 +1,13 @@
+numpy
+pandas
+scikit-learn
+pytorch-forecasting
+pytorch-lightning
+fastapi
+uvicorn
+networkx
+xgboost
+lightgbm
+matplotlib
+seaborn
+requests
