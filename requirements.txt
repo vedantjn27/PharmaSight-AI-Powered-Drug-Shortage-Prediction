@@ -5,6 +5,7 @@ pytorch-forecasting
 pytorch-lightning
 fastapi
 uvicorn
+python-multipart
 networkx
 xgboost
 lightgbm
