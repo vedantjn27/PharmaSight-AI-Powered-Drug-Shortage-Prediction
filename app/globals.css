@@ -182,3 +182,90 @@
 .dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* Mobile-First Responsive Utilities */
+@media (max-width: 640px) {
+  main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .glass {
+    @apply rounded-lg;
+  }
+
+  table {
+    font-size: 0.75rem;
+  }
+
+  .status-badge {
+    @apply px-2 py-1 text-xs;
+  }
+
+  .button-primary,
+  .button-secondary {
+    @apply px-3 py-1.5 text-sm;
+  }
+
+  .input-field {
+    @apply px-3 py-1.5 text-sm;
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  table {
+    font-size: 0.875rem;
+  }
+}
+
+/* Desktop Standard */
+@media (min-width: 1025px) {
+  main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Ensure touch targets are large enough on mobile */
+@media (max-width: 640px) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 2.5rem;
+  }
+
+  .navbar {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+/* Prevent layout shift on mobile */
+@media (max-width: 640px) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Safe area support for notched devices */
+@supports (padding: max(0px)) {
+  @media (max-width: 640px) {
+    nav {
+      padding-left: max(0.75rem, env(safe-area-inset-left));
+      padding-right: max(0.75rem, env(safe-area-inset-right));
+    }
+
+    main {
+      padding-left: max(0.75rem, env(safe-area-inset-left));
+      padding-right: max(0.75rem, env(safe-area-inset-right));
+    }
+  }
+}

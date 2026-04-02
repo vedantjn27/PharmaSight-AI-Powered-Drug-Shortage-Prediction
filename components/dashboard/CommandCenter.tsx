@@ -145,16 +145,16 @@ export default function CommandCenter() {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-full">
             <thead className="bg-primary-500/5 border-b border-border">
               <tr>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Drug Name</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Category</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Risk Status</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">CDSCO Alerts</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Demand</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">Cost Volume</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-foreground">7-Day Trend</th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs sm:text-sm font-semibold text-foreground">Drug</th>
+                <th className="hidden sm:table-cell px-6 py-3 text-left text-sm font-semibold text-foreground">Category</th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs sm:text-sm font-semibold text-foreground">Risk</th>
+                <th className="hidden md:table-cell px-6 py-3 text-left text-sm font-semibold text-foreground">CDSCO</th>
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-sm font-semibold text-foreground">Demand</th>
+                <th className="px-3 sm:px-6 py-3 text-left text-xs sm:text-sm font-semibold text-foreground">Cost</th>
+                <th className="hidden lg:table-cell px-6 py-3 text-left text-sm font-semibold text-foreground">Trend</th>
               </tr>
             </thead>
             <tbody>
@@ -179,16 +179,16 @@ export default function CommandCenter() {
                     transition={{ delay: i * 0.05 }}
                     className="border-b border-border/50 hover:bg-primary-500/5 transition-colors"
                   >
-                    <td className="px-6 py-4">
-                      <span className="font-semibold text-foreground">{drug.drug}</span>
+                    <td className="px-3 sm:px-6 py-4">
+                      <span className="font-semibold text-foreground text-xs sm:text-sm">{drug.drug}</span>
                     </td>
-                    <td className="px-6 py-4 text-sm text-muted">{drug.category}</td>
-                    <td className="px-6 py-4">
-                      <span className={`status-badge ${getRiskColor(drug.risk_status)}`}>
+                    <td className="hidden sm:table-cell px-6 py-4 text-sm text-muted">{drug.category}</td>
+                    <td className="px-3 sm:px-6 py-4">
+                      <span className={`status-badge text-xs sm:text-sm ${getRiskColor(drug.risk_status)}`}>
                         {drug.risk_status}
                       </span>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="hidden md:table-cell px-6 py-4">
                       <div className="flex items-center gap-2">
                         {drug.cdsco_alerts > 0 ? (
                           <AlertCircle className="w-4 h-4 text-status-amber" />
@@ -196,9 +196,9 @@ export default function CommandCenter() {
                         <span className="text-sm font-semibold">{drug.cdsco_alerts}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-sm font-semibold">{formatNumber(drug.latest_demand)}</td>
-                    <td className="px-6 py-4 text-sm font-semibold">{formatCurrency(drug.cost_volume)}</td>
-                    <td className="px-6 py-4">
+                    <td className="hidden lg:table-cell px-6 py-4 text-sm font-semibold">{formatNumber(drug.latest_demand)}</td>
+                    <td className="px-3 sm:px-6 py-4 text-xs sm:text-sm font-semibold">{formatCurrency(drug.cost_volume)}</td>
+                    <td className="hidden lg:table-cell px-6 py-4">
                       {drug.trend && drug.trend.length > 0 ? (
                         getTrendChart(drug.trend)
                       ) : (

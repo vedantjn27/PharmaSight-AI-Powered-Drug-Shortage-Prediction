@@ -72,12 +72,12 @@ export default function CSVUploadZone() {
       })
 
       setUploadedData(result)
-    } catch (error: any) {
-      setUploadStatus({
-        status: 'error',
-        message: error.response?.data?.detail || 'Failed to upload CSV. Please try again.',
-      })
-    }
+      } catch (error: any) {
+        setUploadStatus({
+          status: 'error',
+          message: error.message || 'Failed to upload CSV. Please try again.',
+        })
+      }
   }
 
   const handleDrop = (e: React.DragEvent) => {

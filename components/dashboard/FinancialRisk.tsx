@@ -97,13 +97,13 @@ export default function FinancialRisk() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass rounded-xl p-8 bg-gradient-to-br from-status-red/10 to-status-amber/10 border border-status-red/20"
+        className="glass rounded-xl p-4 sm:p-8 bg-gradient-to-br from-status-red/10 to-status-amber/10 border border-status-red/20"
       >
-        <div className="flex items-start justify-between mb-6">
-          <div>
-            <p className="text-sm text-muted mb-2">Projected Dollars at Risk</p>
+        <div className="flex flex-col sm:flex-row items-start justify-between gap-4 sm:mb-6 mb-4">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-muted mb-2">Projected Dollars at Risk</p>
             <motion.h2
-              className="text-5xl md:text-6xl font-bold gradient-text"
+              className="text-3xl sm:text-5xl md:text-6xl font-bold gradient-text break-words"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -111,8 +111,8 @@ export default function FinancialRisk() {
               {loading ? '...' : formatCurrency(displayData.revenue_at_risk)}
             </motion.h2>
           </div>
-          <div className="p-4 rounded-lg bg-status-red/20 border border-status-red/30">
-            <TrendingDown className="w-8 h-8 text-status-red" />
+          <div className="p-3 sm:p-4 rounded-lg bg-status-red/20 border border-status-red/30 flex-shrink-0">
+            <TrendingDown className="w-6 sm:w-8 h-6 sm:h-8 text-status-red" />
           </div>
         </div>
 

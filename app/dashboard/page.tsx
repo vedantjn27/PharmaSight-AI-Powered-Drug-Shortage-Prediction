@@ -70,7 +70,7 @@ export default function Dashboard() {
       </div>
 
       {/* Main Content */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 py-12">
+      <main className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-12">
         <motion.div
           key={activeTab}
           initial={{ opacity: 0, y: 20 }}
@@ -83,8 +83,8 @@ export default function Dashboard() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 max-w-7xl mx-auto px-6 py-12 border-t border-border text-center text-sm text-muted">
-        <p>PharmaSight - AI-Powered Drug Shortage Prediction & Supply Chain Intelligence</p>
+      <footer className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-12 border-t border-border text-center text-xs sm:text-sm text-muted">
+        <p className="text-xs sm:text-sm">PharmaSight - AI-Powered Drug Shortage Prediction & Supply Chain Intelligence</p>
         <p className="mt-2 text-xs">
           {backendHealthy ? '✓ Backend Connected' : '⚠️ Backend Offline - Using Demo Mode'}
         </p>
